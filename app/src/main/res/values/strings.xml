@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SynergyJavaMod3</string>
+    <string name="pause_name">Пауза активности</string>
+    <string name="resume_name">Передача пользователю активности</string>
 </resources>
