@@ -1,5 +1,6 @@
 package com.example.synergyjavamod3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -42,18 +43,21 @@ public class MainActivity extends AppCompatActivity {
     };
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-
-        outState.putInt(nameVariableKey, count);
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putInt("key", count);
+
+        Toast toast = Toast.makeText(this, "Запись данных в контейнер", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        count = savedInstanceState.getInt("key");
 
-        count = Integer.parseInt(savedInstanceState.getString(nameVariableKey));
-        textCount.setText(count);
+        Toast toast = Toast.makeText(this, "Считывание данных из контейнера", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
