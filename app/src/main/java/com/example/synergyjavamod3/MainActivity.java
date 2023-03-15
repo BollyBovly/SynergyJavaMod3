@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private String sMove;
     private String sUp;
 
-    private final float x_CAT = 750;
-    private final float y_CAT = 700;
+    private final float x_CAT = 550;
+    private final float y_CAT = 500;
     private final float delta_CAt = 70;
 
     @Override
@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
                     sMove = "Движение: координата X = " + x + ", координата Y = " + y;
                     if (x < (x_CAT + delta_CAt) && x > (x_CAT - delta_CAt) && y < (y_CAT + delta_CAt) && y > (y_CAT - delta_CAt)) {
                         Toast toast = Toast.makeText(getApplicationContext(), R.string.successful_search, Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.LEFT, (int) x_CAT, (int) y_CAT);
+                        toast.setGravity(Gravity.LEFT, (int) x_CAT, (int) y_CAT-500);
 
                         LinearLayout toastConteiner = (LinearLayout) toast.getView();
 
                         // добавление картинки
                         ImageView cat = new ImageView(getApplicationContext());
-                        cat.setImageResource(R.drawable.cat);
+//                        cat.setImageResource(R.drawable.cat);
                         toastConteiner.addView(cat, 1);
                         toast.show();
                     }
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             coordinatesOut.setText(sDown + "\n" + sMove + "\n" + sUp);
 
-            return false;
+            return true;
         }
     };
 }
